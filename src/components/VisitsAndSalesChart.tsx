@@ -2,11 +2,11 @@ import React from 'react';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup, VictoryLegend, VictoryTheme } from 'victory';
 import { type ChartData } from '../types';
 
-interface AnalyticsChartProps {
+interface VisitsAndSalesChartProps {
   data: ChartData[];
 }
 
-const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
+const VisitsAndSalesChart: React.FC<VisitsAndSalesChartProps> = ({ data }) => {
   const visitsData = data.map(d => ({ x: d.day, y: d.visits }));
   const salesData = data.map(d => ({ x: d.day, y: d.sales }));
   const dayLabels = data.map(d => d.day);
@@ -28,15 +28,15 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
             title: { fontSize: 14, fill: '#333' } 
           }}
           data={[
-            { name: "Visits", symbol: { fill: "#3b82f6" } },
-            { name: "Sales", symbol: { fill: "#f97316" } }
+            { name: "Visits", symbol: { fill: "#5459D2" } },
+            { name: "Sales", symbol: { fill: "#32D583" } }
           ]}
         />
         <VictoryAxis
           tickValues={dayLabels}
           style={{
             axis: { stroke: "#d1d5db" },
-            tickLabels: { fontSize: 10, padding: 5, fill: "#6b7280" },
+            tickLabels: { fontSize: 10, padding: 15, fill: "#6b7280", angle: -45, textAnchor: 'end' },
             grid: { stroke: "transparent" }
           }}
         />
@@ -51,13 +51,13 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
         <VictoryGroup offset={12} colorScale={"qualitative"}>
           <VictoryBar
             data={visitsData}
-            style={{ data: { fill: "#3b82f6" } }}
+            style={{ data: { fill: "#5459D2" } }}
             barWidth={10}
             cornerRadius={{ topLeft: 3, topRight: 3 }}
           />
           <VictoryBar
             data={salesData}
-            style={{ data: { fill: "#f97316" } }}
+            style={{ data: { fill: "#32D583" } }}
             barWidth={10}
             cornerRadius={{ topLeft: 3, topRight: 3 }}
           />
@@ -67,4 +67,4 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
   );
 };
 
-export default AnalyticsChart;
+export default VisitsAndSalesChart;

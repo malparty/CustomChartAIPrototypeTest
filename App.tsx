@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import AnalyticsChart from './components/AnalyticsChart';
+import VisitsAndSalesChart from './components/VisitsAndSalesChart';
 import { type ChartData } from './types';
 
 const App: React.FC = () => {
@@ -74,7 +74,7 @@ const App: React.FC = () => {
 
               <div className="flex-grow w-full h-1/2 flex items-center justify-center">
                 {chartData.length > 0 ? (
-                  <AnalyticsChart data={chartData} />
+                  <VisitsAndSalesChart data={chartData} />
                 ) : (
                   <p className="text-gray-400">Loading chart data...</p>
                 )}
