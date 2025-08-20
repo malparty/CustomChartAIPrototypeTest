@@ -4,4 +4,5 @@ export interface ChartData {
   visits: number;
   sales: number;
   surveys: number;
+  photos: number;
 }

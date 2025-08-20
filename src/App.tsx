@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import VisitsAndSalesChart from './components/VisitsAndSalesChart';
 import CompletedSurveysChart from './components/CompletedSurveysChart';
+import UploadedPhotosChart from './components/UploadedPhotosChart';
 import { type ChartData } from './types';
 
 const App: React.FC = () => {
@@ -39,6 +40,7 @@ const App: React.FC = () => {
         visits: Math.floor(Math.random() * 11),
         sales: Math.floor(Math.random() * 11),
         surveys: Math.floor(Math.random() * 8) + 1,
+        photos: Math.floor(Math.random() * 12) + 3,
       }));
       setChartData(data);
     };
@@ -107,6 +109,14 @@ const App: React.FC = () => {
                   <div className="h-[350px] flex items-center justify-center flex-shrink-0">
                     {chartData.length > 0 ? (
                       <CompletedSurveysChart data={chartData} />
+                    ) : (
+                      <p className="text-gray-400">Loading chart data...</p>
+                    )}
+                  </div>
+                  
+                  <div className="h-[350px] flex items-center justify-center flex-shrink-0">
+                    {chartData.length > 0 ? (
+                      <UploadedPhotosChart data={chartData} />
                     ) : (
                       <p className="text-gray-400">Loading chart data...</p>
                     )}
