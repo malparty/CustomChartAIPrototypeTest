@@ -1,0 +1,5 @@
+{
+  "name": "CustomChartPrototype",
+  "description": "A prototype web application showcasing a grouped bar chart within a simulated mobile app layout, built with React, TypeScript, and Tailwind CSS. The chart displays randomly generated daily visits and sales data for the last 7 days.",
+  "requestFramePermissions": []
+}
