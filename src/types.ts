@@ -2,4 +2,6 @@
 export interface ChartData {
   day: string;
   visits: number;
-  sales: number}
+  sales: number;
+  surveys: number;
+}

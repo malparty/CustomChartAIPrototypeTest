@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import VisitsAndSalesChart from './components/VisitsAndSalesChart';
+import CompletedSurveysChart from './components/CompletedSurveysChart';
 import { type ChartData } from './types';
 
 const App: React.FC = () => {
@@ -37,6 +38,7 @@ const App: React.FC = () => {
         day: formatDate(date),
         visits: Math.floor(Math.random() * 11),
         sales: Math.floor(Math.random() * 11),
+        surveys: Math.floor(Math.random() * 8) + 1,
       }));
       setChartData(data);
     };
@@ -86,16 +88,30 @@ const App: React.FC = () => {
             </header>
 
             {/* Main App View */}
-            <div className="flex-grow p-6 pt-8 flex flex-col">
-              <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-              <p className="text-gray-500 mb-6">Last 7 Days Analytics</p>
+            <div className="flex-grow p-6 pt-8 flex flex-col min-h-0">
+              <div className="flex-shrink-0">
+                <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+                <p className="text-gray-500 mb-6">Last 7 Days Analytics</p>
+              </div>
 
-              <div className="flex-grow w-full h-1/2 flex items-center justify-center">
-                {chartData.length > 0 ? (
-                  <VisitsAndSalesChart data={chartData} />
-                ) : (
-                  <p className="text-gray-400">Loading chart data...</p>
-                )}
+              <div className="flex-1 w-full overflow-y-auto min-h-0">
+                <div className="space-y-6 pb-8">
+                  <div className="h-[350px] flex items-center justify-center flex-shrink-0">
+                    {chartData.length > 0 ? (
+                      <VisitsAndSalesChart data={chartData} />
+                    ) : (
+                      <p className="text-gray-400">Loading chart data...</p>
+                    )}
+                  </div>
+                  
+                  <div className="h-[350px] flex items-center justify-center flex-shrink-0">
+                    {chartData.length > 0 ? (
+                      <CompletedSurveysChart data={chartData} />
+                    ) : (
+                      <p className="text-gray-400">Loading chart data...</p>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
             
