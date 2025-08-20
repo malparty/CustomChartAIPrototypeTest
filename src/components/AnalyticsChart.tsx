@@ -29,8 +29,8 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
             title: { fontSize: 14, fill: '#333' } 
           }}
           data={[
-            { name: "Visits", symbol: { fill: "#2027D2" } },
-            { name: "Sales", symbol: { fill: "#F79009" } }
+            { name: "Visits", symbol: { fill: "#5459D2" } },
+            { name: "Sales", symbol: { fill: "#32D583" } }
           ]}
         />
         <VictoryAxis
@@ -52,13 +52,13 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
         <VictoryGroup offset={12} colorScale={"qualitative"}>
           <VictoryBar
             data={visitsData}
-            style={{ data: { fill: "#2027D2" } }}
+            style={{ data: { fill: "#5459D2" } }}
             barWidth={10}
             cornerRadius={{ topLeft: 3, topRight: 3 }}
           />
           <VictoryBar
             data={salesData}
-            style={{ data: { fill: "#F79009" } }}
+            style={{ data: { fill: "#32D583" } }}
             barWidth={10}
             cornerRadius={{ topLeft: 3, topRight: 3 }}
           />
